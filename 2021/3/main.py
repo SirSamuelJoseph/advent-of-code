@@ -38,6 +38,7 @@ def getLifeSupportSubsystem(binaries, isOxygen):
 def importBinaries(path):
     file = open(path, 'r')
     binaries = file.readlines()
+    file.close()
     return binaries
 
 # Gets the most common bit for the given position among the binaries
