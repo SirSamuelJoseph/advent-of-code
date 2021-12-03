@@ -66,5 +66,5 @@ def binaryCounted(binary, index, mostCommon, isOxygen):
         else:
             return bit != mostCommon
 
-getPowerConsumption(importBinaries())
+getPowerConsumption(importBinaries("input.txt"))
 getLifeSupportRating(importBinaries("input.txt"))
