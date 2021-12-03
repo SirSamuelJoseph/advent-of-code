@@ -1,5 +1,6 @@
-# Gets the power consumption for the given binaries
-def getPowerConsumption(binaries):
+# Gets the power consumption for the binaries in the given file
+def getPowerConsumption(path):
+    binaries = [line.rstrip() for line in open(path)]
     bitLength = len(binaries[0])
     mostCommon = [0] * bitLength
     for i in range(bitLength):
@@ -14,8 +15,9 @@ def getPowerConsumption(binaries):
     returnString = "Gamma: {}, Epsilon: {}, Product: {}"
     print(returnString.format(gamma, epsilon, product))
 
-# Gets the life support rating for the given binaries
-def getLifeSupportRating(binaries):
+# Gets the life support rating for the binaries at the given path
+def getLifeSupportRating(path):
+    binaries = [line.rstrip() for line in open(path)]
     oxygen = int(getLifeSupportSubsystem(binaries, True), 2)
     co2 = int(getLifeSupportSubsystem(binaries, False), 2)
     product = oxygen * co2
@@ -32,10 +34,6 @@ def getLifeSupportSubsystem(binaries, isOxygen):
         contenders = [x for x in contenders if binaryCounted(x, index, mostCommonNum, isOxygen)]
         index += 1
     return contenders[0]
-
-# Import the binaries and put them into an array of strings
-def importBinaries(path):
-    return [line.rstrip() for line in open(path)]
 
 # Gets the most common bit for the given position among the binaries
 def getMostCommonBitFromPosition(binaries, position):
@@ -62,5 +60,5 @@ def binaryCounted(binary, index, mostCommon, isOxygen):
         else:
             return bit != mostCommon
 
-getPowerConsumption(importBinaries("input.txt"))
-getLifeSupportRating(importBinaries("input.txt"))
+getPowerConsumption("input.txt")
+getLifeSupportRating("input.txt")
