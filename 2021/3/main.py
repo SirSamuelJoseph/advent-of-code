@@ -1,6 +1,6 @@
 # Gets the power consumption for the given binaries
 def getPowerConsumption(binaries):
-    bitLength = len(binaries[0]) - 1 # subtract the newline
+    bitLength = len(binaries[0])
     mostCommon = [0] * bitLength
     for i in range(bitLength):
         mostCommon[i] = getMostCommonBitFromPosition(binaries, i)
@@ -34,12 +34,8 @@ def getLifeSupportSubsystem(binaries, isOxygen):
     return contenders[0]
 
 # Import the binaries and put them into an array of strings
-# NOTE: This will keep the newlines- we'll deal with that later
 def importBinaries(path):
-    file = open(path, 'r')
-    binaries = file.readlines()
-    file.close()
-    return binaries
+    return [line.rstrip() for line in open(path)]
 
 # Gets the most common bit for the given position among the binaries
 def getMostCommonBitFromPosition(binaries, position):
