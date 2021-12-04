@@ -1,4 +1,1 @@
-{
-    "go.inferGopath": true,
-    "go.installDependenciesWhenBuilding": true
-}
+{}
