@@ -51,6 +51,7 @@ jobs:
           name: Install Dependencies
           command: |
             sudo pip install pipenv
+            sudo pip install pytest
             pipenv install
       - run:
           name: Run tests
