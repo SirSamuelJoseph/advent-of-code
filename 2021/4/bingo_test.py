@@ -9,4 +9,4 @@ class TestGetBinarySystemResults(unittest.TestCase):
     
     def test_get_life_support_rating(self):
         score = bingo.GameState(self.testInput, 5).playGameUntilLastWin()
-        self.assertEqual(val, 1924, "Wrong Value")
+        self.assertEqual(score, 1924, "Wrong Value")
