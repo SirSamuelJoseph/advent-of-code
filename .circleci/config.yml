@@ -34,7 +34,7 @@ jobs:
           name: Run tests and collect coverage
           command: |
             pwd
-            coverage run 
+            coverage run -m pytest
             coverage xml
       - codecov/upload
 
