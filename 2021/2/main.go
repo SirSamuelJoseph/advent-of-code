@@ -24,7 +24,7 @@ func importDirectionsFromFile(name string) []string {
 	return directions
 }
 
-func getPositionFromDirections(dirs []string) {
+func getPositionFromDirections(dirs []string) int {
 	depth := 0
 	horizontal := 0
 
@@ -47,9 +47,10 @@ func getPositionFromDirections(dirs []string) {
 	log.Println(fmt.Sprintf("Depth: %d", depth))
 	log.Println(fmt.Sprintf("Horizontal: %d", horizontal))
 	log.Println(fmt.Sprintf("Product: %d", depth*horizontal))
+	return depth * horizontal
 }
 
-func getComplexPositionFromDirections(dirs []string) {
+func getComplexPositionFromDirections(dirs []string) int {
 	depth := 0
 	horizontal := 0
 	aim := 0
@@ -73,9 +74,11 @@ func getComplexPositionFromDirections(dirs []string) {
 	log.Println(fmt.Sprintf("Depth: %d", depth))
 	log.Println(fmt.Sprintf("Horizontal: %d", horizontal))
 	log.Println(fmt.Sprintf("Product: %d", depth*horizontal))
+	return depth * horizontal
 }
 
 func main() {
 	directions := importDirectionsFromFile("input.txt")
+	getPositionFromDirections(directions)
 	getComplexPositionFromDirections(directions)
 }

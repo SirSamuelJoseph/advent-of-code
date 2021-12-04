@@ -24,3 +24,11 @@ def getComplexPositionFromDirections(directions):
         elif angular == 'up':
             aim -= radial
     return depth * horizontal
+
+def main():
+    inputs = [line.rstrip() for line in open("input.txt")]
+    print(getPositionFromDirections(inputs))
+    print(getComplexPositionFromDirections(inputs))
+
+if __name__ == "__main__":
+    main()
