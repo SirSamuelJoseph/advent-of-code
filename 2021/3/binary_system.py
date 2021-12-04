@@ -1,6 +1,5 @@
 # Gets the power consumption for the binaries in the given file
-def getPowerConsumption(path):
-    binaries = [line.rstrip() for line in open(path)]
+def getPowerConsumption(binaries):
     bitLength = len(binaries[0])
     mostCommon = [0] * bitLength
     for i in range(bitLength):
@@ -14,15 +13,16 @@ def getPowerConsumption(path):
     product = gamma * epsilon
     returnString = "Gamma: {}, Epsilon: {}, Product: {}"
     print(returnString.format(gamma, epsilon, product))
+    return product
 
 # Gets the life support rating for the binaries at the given path
-def getLifeSupportRating(path):
-    binaries = [line.rstrip() for line in open(path)]
+def getLifeSupportRating(binaries):
     oxygen = int(getLifeSupportSubsystem(binaries, True), 2)
     co2 = int(getLifeSupportSubsystem(binaries, False), 2)
     product = oxygen * co2
     returnString = "Oxygen: {}, CO2: {}, Product: {}"
     print(returnString.format(oxygen, co2, product))
+    return product
 
 # Handles a single life support subsystem (Oxygen or CO2)
 def getLifeSupportSubsystem(binaries, isOxygen):
@@ -60,5 +60,11 @@ def binaryCounted(binary, index, mostCommon, isOxygen):
         else:
             return bit != mostCommon
 
-getPowerConsumption("input.txt")
-getLifeSupportRating("input.txt")
+def main():
+    inputs = [line.rstrip() for line in open("input.txt")]
+    getPowerConsumption(inputs)
+    getLifeSupportRating(inputs)
+
+if __name__ == "__main__":
+    main()
+
