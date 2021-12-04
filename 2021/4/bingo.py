@@ -25,8 +25,7 @@ class Board:
 
 
 class GameState:
-    def __init__(self, path, boardSize):
-        inputs = [line.rstrip() for line in open(path)]
+    def __init__(self, inputs, boardSize):
         self.draws = inputs[0].split(",")
         self.drawn = []
         boards = []
