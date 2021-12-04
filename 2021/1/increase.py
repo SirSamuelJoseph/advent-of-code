@@ -14,4 +14,8 @@ def countIncreasesWindows(nums, windowSize):
 
 def main():
     inputs = [line.rstrip() for line in open("input.txt")]
+    print(countIncreases(inputs))
     print(countIncreasesWindows(inputs, 3))
+
+if __name__ == "__main__":
+    main()
