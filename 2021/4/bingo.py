@@ -63,8 +63,9 @@ class GameState:
                     self.boards.remove(board)
         return self.playGame()
     
-        
-        
-
-state = GameState("input.txt", 5)
-print(state.playGameUntilLastWin())
+def main():
+    state = GameState([line.rstrip() for line in open("input.txt")], 5)
+    print(state.playGameUntilLastWin())    
+    
+if __name__ == "__main__":
+    main()
