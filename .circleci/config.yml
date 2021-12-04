@@ -55,7 +55,8 @@ jobs:
       - run:
           name: Run tests
           command: |
-            pipenv run python main_test.py test
+            pwd
+            python -m pytest
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
