@@ -115,19 +115,6 @@ func hasBoardWon(board bingoBoard, drawn []int) bool {
 			return true
 		}
 	}
-
-	// Check for diagonal victory
-	for i := 0; i < BOARD_SIZE; i++ {
-		downwardDiagonalVictory := true
-		upwardDiagonalVictory := true
-		for _, row := range claimed {
-			downwardDiagonalVictory = downwardDiagonalVictory && row[i]
-			upwardDiagonalVictory = upwardDiagonalVictory && row[BOARD_SIZE-1-i]
-		}
-		if upwardDiagonalVictory || downwardDiagonalVictory {
-			return true
-		}
-	}
 	return false
 }
 
