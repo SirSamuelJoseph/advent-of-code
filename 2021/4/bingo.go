@@ -142,6 +142,15 @@ func main() {
 	log.Println(score)
 }
 
+func getFirstBoardWinningScore(state GameState) int {
+	var drawn []int
+	for -1 == hasAnyBoardWon(state, drawn) {
+		drawn = append(drawn, state.draws[len(drawn)])
+	}
+	index := hasAnyBoardWon(state, drawn)
+	return getBoardScore(state.boards[index], drawn)
+}
+
 func getLastBoardLosingScore(state GameState) int {
 	var drawn []int
 	for len(state.boards) > 1 {
