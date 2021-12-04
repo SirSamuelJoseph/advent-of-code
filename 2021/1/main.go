@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"math"
 	"os"
@@ -57,6 +58,8 @@ func importNumsFromFile(name string) []int {
 
 func main() {
 	nums := importNumsFromFile("input.txt")
-	count := countIncreasesWindow(nums, math.MaxInt32)
-	log.Println(count)
+	count := countIncreases(nums)
+	log.Println(fmt.Sprintf("Increases: %d", count))
+	countWindows := countIncreasesWindow(nums, math.MaxInt32)
+	log.Println(fmt.Sprintf("Window Increases: %d", countWindows))
 }
