@@ -6,7 +6,7 @@ jobs:
   test-go:
     working_directory: ~/repo
     docker:
-      - image: circleci/golang:1.15.8
+      - image: circleci/golang
     steps:
       - checkout
       - run:
@@ -16,7 +16,7 @@ jobs:
           name: Run tests
           command: |
             mkdir -p /tmp/test-reports
-            go test -race -coverprofile=coverage.txt -covermode=atomic
+            go test ./.. -race -coverprofile=coverage.txt -covermode=atomic
       - run:
           name: Upload to Codecov
           command: bash <(curl -s https://codecov.io/bash)
