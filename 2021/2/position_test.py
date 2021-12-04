@@ -9,4 +9,4 @@ class TestGetPosition(unittest.TestCase):
     
     def test_get_complex_position(self):
         pos = position.getComplexPositionFromDirections(self.testInput)
-        self.assertEqual(pos, 5, "Wrong Place")
+        self.assertEqual(pos, 900, "Wrong Place")
