@@ -19,7 +19,7 @@ def getPointsOnLine(start, stop):
     points.append(stop)
     return points
 
-def getIntersectionsAboveOne(inputs, counts, diagsCount):
+def getIntersectionsAboveOne(inputs, diagsCount, counts = {}):
     for line in inputs:
         components = line.split('->')
         start = components[0].split(',')
@@ -43,8 +43,8 @@ def getIntersectionsAboveOne(inputs, counts, diagsCount):
                 
 def main():
     inputs = [line.rstrip() for line in open("input.txt")]
-    print(getIntersectionsAboveOne(inputs, {}, False))
-    print(getIntersectionsAboveOne(inputs, {}, True))
+    print(getIntersectionsAboveOne(inputs, False))
+    print(getIntersectionsAboveOne(inputs, True))
  
 if __name__ == "__main__":
     main()
