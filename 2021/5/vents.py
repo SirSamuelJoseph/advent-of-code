@@ -42,7 +42,7 @@ def getIntersectionsAboveOne(inputs, diagsCount, counts):
     return count
                 
 def main():
-    inputs = [line.rstrip() for line in open("testinput.txt")]
+    inputs = [line.rstrip() for line in open("input.txt")]
     print(getIntersectionsAboveOne(inputs, False, {}))
     print(getIntersectionsAboveOne(inputs, True, {}))
  
