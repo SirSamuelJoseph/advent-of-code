@@ -5,10 +5,8 @@ def getFuelCostToMoveToPoint(positions, destination):
 def getFuelCostToMoveToPointBurn(positions, destination):
     diffs = [abs(int(x) - destination) for x in positions]
     fuelCost = 0
-    for ind, num in enumerate(diffs):
-        myFuelCost = 0
-        for i in range(num + 1):
-            myFuelCost += i
+    for num in diffs:
+        myFuelCost =  (num * (num + 1)) / 2
         fuelCost += myFuelCost
 
     return fuelCost
