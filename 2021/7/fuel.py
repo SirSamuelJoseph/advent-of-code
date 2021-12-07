@@ -16,12 +16,15 @@ def getFuelCostToMoveToPointBurn(positions, destination):
 
 
 
-def getCheapestConvergence(positions):
+def getCheapestConvergence(positions, isEfficient = False):
     minPoint, maxPoint = int(min(positions)), int(max(positions))
     convergencePoint = None
     cost = 0
     for point in range(minPoint, maxPoint):
-        newCost = getFuelCostToMoveToPointBurn(positions, int(point))
+        if isEfficient:
+            newCost = getFuelCostToMoveToPoint(positions, int(point))
+        else:
+            newCost = getFuelCostToMoveToPointBurn(positions, int(point))
         print(point, newCost)
         if not convergencePoint or newCost < cost:
             convergencePoint = int(point)
